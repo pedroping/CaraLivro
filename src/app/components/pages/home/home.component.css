@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    width: 45%;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    margin-bottom: 20px;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+    display: flex;
+}
+
+.search-container fa-icon{
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+
+.search-container form {
+    width: 30%;
+    position: relative;
+}
+
+.search-container input {
+    padding: 6px;
+    width: 100%;
+    text-align: center;
+}
+

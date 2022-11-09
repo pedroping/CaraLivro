@@ -1,0 +1,28 @@
+<form class="form" (ngSubmit)="submit()" [formGroup]="postForm" #formDir="ngForm">
+    <div class="form-group">
+        <label>Titulo:</label>
+        <input type="text" class="form-control" placeholder="Titulo" formControlName="title" required>
+        <div *ngIf="title.invalid && formDir.submitted">
+            <small style="color: red;">Por favor insira um titulo!</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Descrição:</label>
+        <textarea class="form-control" placeholder="Nos conte mais" rows="3" formControlName="description" required></textarea>
+        <div *ngIf="description.invalid && formDir.submitted">
+            <small style="color: red;">Por favor insira uma descrição!</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Imagem:</label><br>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" (change)="onFileSelected($event)">
+        <div *ngIf="data">
+            <small style="color: black;">A imagem será alterada apenas se você enviar uma nova!</small>
+        </div>
+    </div>
+    <br>
+    <input type="submit" value="{{ btntipo }}" class="btn btn-outline-success" style="cursor: pointer;">
+    |
+    <button type="button" routerLink="/" class="btn btn-outline-danger">Cancelar</button>
+  </form>
+  

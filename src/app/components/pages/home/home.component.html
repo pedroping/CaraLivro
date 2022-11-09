@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Bem vindo ao Cara<span style="color: blue;">Livro</span></h1>
+  <div class="search-container">
+    <form>
+      <fa-icon [icon]="faSearch"></fa-icon>
+      <input type="text" placeholder="Buscar uma postagem:" (input)="searchPost($event)">
+    </form>
+  </div>
+  <div class="cards" *ngIf="filtered_Posts!.length > 0; else noPosts">
+    <div class="card" *ngFor="let post of filtered_Posts">
+     <img class="card-img-top" src="{{Url}}uploads/{{post.image}}" alt="Card image cap">
+     <div class="card-body">
+       <h5 class="card-title">{{post.title}}</h5>
+       <p class="card-text">{{post.description}}</p>
+       <h4>Comentarios: {{post.comments!.length}}</h4>
+     </div>
+     <div class="card-body">
+       <button routerLink="/detail/{{ post.id }}" class="btn btn-outline-success">Detalhes</button>
+     </div> 
+   </div>
+  </div>
+ <ng-template #noPosts>
+   <h3>Nenhuma postagem encontrada!</h3>
+ </ng-template>
+</div>

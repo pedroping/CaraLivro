@@ -1,0 +1,71 @@
+<div class="post" *ngIf="Post">
+    <h1>
+        {{Post.title}}
+    </h1>
+    <img class="card-img-top" src="{{Url}}uploads/{{Post.image}}">
+    <div class="about-post">
+        <h3>Descrição:</h3>
+        <p>{{Post.description}}</p>
+    </div>
+    <div class="actions">
+        <h3>Ações:</h3>
+        <button type="button" class="btn btn-outline-success" routerLink="/">
+            <a>
+                <fa-icon [icon]="faHome"></fa-icon> Home
+            </a>  
+        </button>
+        <a>|</a>
+        <button type="button" class="btn btn-outline-primary" routerLink="/editar/{{Post.id}}">
+            <a>
+                <fa-icon [icon]="faEdit"></fa-icon> Editar 
+            </a>  
+        </button>
+        <a>|</a>
+        <button type="button" class="btn btn-outline-danger" (click)="removePost(Post.id!)">
+           <fa-icon [icon]="faTimes"></fa-icon> Excluir 
+        </button>
+    </div>
+    <div class="comments">
+        <p>Comentarios({{Post.comments?.length}}):</p>
+        <div *ngIf="Post.comments!.length > 0; else noComments ">
+            <ul class="list-group" *ngFor="let comment of Post.comments">
+                <li class="list-group-item active">{{comment.text}}</li>
+                <li  class="list-group-item"><span style="color: blue;">Por:</span> {{comment.username}}</li>
+                <br>
+            </ul>
+            
+        </div>
+        <ng-template #noComments>
+            <p>Nenhum comentario adicionado!</p>
+        </ng-template>
+    </div>
+    <form style="text-align: left;" [formGroup]="commentForm" #formDir="ngForm">
+        <h3>Deixe seu comentario!</h3>
+        <div class="form-group">
+            <label for="text">Comentario:</label>
+            <textarea type="text" 
+                formControlName="text" 
+                class="form-control" 
+                placeholder="Deixe seu comentario:" 
+                required
+            >
+            </textarea>
+            <div *ngIf="text!.invalid && formDir.submitted">
+                <small style="color: red;">Por favor insira uma descrição!</small>
+            </div>
+            <small class="form-text text-muted">Tente ser gentil no seu comentario!</small>
+        </div>
+        <div class="form-group">
+          <label for="username">Nome:</label>
+          <input type="text" formControlName="username" class="form-control" placeholder="Digite seu nome:" required>
+          <div *ngIf="username!.invalid && formDir.submitted">
+            <small style="color: red;">Por favor insira uma descrição!</small>
+        </div>
+        </div>
+        <button style="margin-top: 10px; margin-bottom: 10px;" 
+        type="submit" 
+        (click)="onSubmit(formDir)"
+        class="btn btn-outline-success"
+        >Submit</button>
+      </form>
+</div>

@@ -1,0 +1,2 @@
+<h2 style="text-align: center; padding: 20px;" *ngIf="Post">Editar <span style="color: blue;">{{Post.title}}</span>!</h2>
+<app-form btntipo=" Editar! " (onSubmit)="formHandler($event)" [data]="Post" *ngIf="Post"></app-form>

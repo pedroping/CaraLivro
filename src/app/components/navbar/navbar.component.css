@@ -1,0 +1,20 @@
+a {
+    text-decoration: none;
+    color: #444; 
+    transition: .4s;
+}
+
+ul{
+    list-style-type: none;
+    padding-top: 15px; 
+}
+
+ul li {
+    display: inline; 
+    padding-left: 10px;
+}
+
+a:hover {
+   color: blue;
+   transform: scaleX(1.1);
+}

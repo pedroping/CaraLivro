@@ -1,0 +1,49 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+}
+
+h1 {
+    margin-bottom: 1em;
+}
+
+img {
+    max-width: 500px;
+    margin-bottom: 0 auto 1em;
+}
+
+.about-post, 
+.actions {
+    padding-bottom: 1em; 
+    border-bottom: 1px solid #ccc;
+    padding: 1.2em;
+    width: 70%;
+}
+
+.comments {
+    margin-bottom: 1em;
+    padding: 1.5em 0;
+    text-align: left;
+}
+
+.actions button {
+    padding-left: 10px;
+}
+
+.comment {
+    font-size: .9em;
+}
+
+.author {
+    font-size: .8em;
+}
